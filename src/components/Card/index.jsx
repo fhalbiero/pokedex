@@ -36,10 +36,6 @@ const Card = ({pokemon}) => {
     var rect = container.getBoundingClientRect();
     var x = (e.clientX - rect.left - 130) / 10; //x position within the element.
     var y = (e.clientY - rect.top - 180) / 10;  //y position within the element.
-    //const xAxis = ((window.innerWidth / 2 - e.pageX) / 10);
-    //const yAxis = ((window.innerHeight / 2 - e.pageY) / 10);
-
-    //console.log( x  , xAxis, y , yAxis );
 
     card.style.transform = `rotateY(${x}deg) rotateX(${y}deg) `;
   }
@@ -48,39 +44,27 @@ const Card = ({pokemon}) => {
     const card = document.querySelector(`#card-${pokemonData.name}`);
     const pokeballImage = document.querySelector(`#pokeball-${pokemonData.name}`);
     const pokemonImage = document.querySelector(`#pokemon-${pokemonData.name}`);
-    const title = document.querySelector(`#title-${pokemonData.name}`);
-    const experience = document.querySelector(`#experience-${pokemonData.name}`);
-    const types = document.querySelector(`#types-${pokemonData.name}`);
-    const abilities = document.querySelector(`#abilities-${pokemonData.name}`);
+    const main = document.querySelector(`#main-${pokemonData.name}`);
 
     card.style.transition = `none`;
 
     pokeballImage.style.transform = ` translateZ(80px) rotateZ(16deg)`;
-    pokemonImage.style.transform = ` translateZ(240px) rotateZ(-4deg)`;
-    title.style.transform = ` translateZ(140px)`;
-    experience.style.transform = ` translateZ(100px)`;
-    types.style.transform = ` translateZ(66px)`;
-    abilities.style.transform = ` translateZ(66px)`;
+    pokemonImage.style.transform = ` translateZ(260px) rotateZ(-4deg)`;
+    main.style.transform = ` translateZ(48px)`;
   }
 
   const mouseLeaveCard = () => {
     const card = document.querySelector(`#card-${pokemonData.name}`);
     const pokeballImage = document.querySelector(`#pokeball-${pokemonData.name}`);
     const pokemonImage = document.querySelector(`#pokemon-${pokemonData.name}`);
-    const title = document.querySelector(`#title-${pokemonData.name}`);
-    const experience = document.querySelector(`#experience-${pokemonData.name}`);
-    const types = document.querySelector(`#types-${pokemonData.name}`);
-    const abilities = document.querySelector(`#abilities-${pokemonData.name}`);
+    const main = document.querySelector(`#main-${pokemonData.name}`);
 
     card.style.transform = `rotateY(0deg) rotateX(0deg) `;
     card.style.transition = `all 0.5s ease`;
 
     pokeballImage.style.transform = ` translateZ(0px) rotateZ(0deg)`;
     pokemonImage.style.transform = ` translateZ(0px) rotateZ(0deg)`;
-    title.style.transform = ` translateZ(0px)`;
-    experience.style.transform = ` translateZ(0px)`;
-    types.style.transform = ` translateZ(0px)`;
-    abilities.style.transform = ` translateZ(0px)`;
+    main.style.transform = ` translateZ(0px)`;
   }
 
   if (!pokemonData.name) {
@@ -111,18 +95,24 @@ const Card = ({pokemon}) => {
               alt="pokemon"
             />
           </div>
-          <main>
-            <h2 id={`title-${pokemonData.name}`} >{pokemonData.name}</h2>
+          
 
-            <div className="experience" id={`experience-${pokemonData.name}`}>
-                <div>{pokemonData.base_experience}</div>
+          <main id={`main-${pokemonData.name}`} >
+            <h2>{pokemonData.name}</h2>
+
+            <div className="experience">
+                <h4>Experience</h4>
+                <div className="inner-experience">
+                  <div>{pokemonData.base_experience}</div>
+                </div>
             </div>
             
-            <div className="types" id={`types-${pokemonData.name}`}>
+            <div className="types">
+              <h4>Type</h4>
               {pokemonData.types.map( type => <button>{type.name}</button> )}
             </div> 
 
-            <div className="abilities" id={`abilities-${pokemonData.name}`}>
+            <div className="abilities">
               <h4>Abilits</h4>
               {pokemonData.abilities.map( ability => <button>{ability.name}</button> )}
             </div>

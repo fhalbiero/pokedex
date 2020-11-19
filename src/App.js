@@ -10,9 +10,9 @@ function App() {
   return (
     <>
     <Global />
-    {/* <PokemonsProvider> */}
+    <PokemonsProvider>
       <Dashboard />
-    {/* </PokemonsProvider> */}
+    </PokemonsProvider>
     </>
   );
 }

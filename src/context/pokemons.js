@@ -1,19 +1,36 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useState, useEffect } from 'react';
 import api from '../services/api';
-
 
 const PokemonsContext = createContext({});
 
 
-const PokemonsProvider = ({chieldren}) => {
+const PokemonsProvider = ({children}) => {
 
     const [ pokemons, setPokemons ] = useState([]); 
+    const [ count, setCountPokemons ] = useState([]); 
+
+    useEffect(() => {
+        api.get('?offset=0&limit=20')
+            .then( response => {
+                setCountPokemons(response.data.count);
+                setPokemons(response.data.results);
+            });
+    }, []);
+
+    const handlePokemons = useCallback((data) => {
+        setPokemons(data);
+    }, [setPokemons, pokemons]);
 
 
     return (
-         <PokemonsContext.Provider value={{ pokemons, setPokemons }} >
-             {chieldren}
-         </PokemonsContext.Provider>
+        <PokemonsContext.Provider value={{ 
+             pokemons, 
+             setPokemons: handlePokemons, 
+             count, 
+             setCountPokemons 
+        }} >
+             {children}
+        </PokemonsContext.Provider>
     )   
 }
 

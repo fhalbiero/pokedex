@@ -6,7 +6,7 @@ export const ContainerCard = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    perspective: 900px;
+    perspective: 1080px;
 
     .card {
         display: flex;
@@ -24,7 +24,7 @@ export const ContainerCard = styled.div`
         background-color: #fff;
         border: 1px solid #efefef;
         border-radius: 16px; 
-        background-color: rgba(255, 255, 255, 0.85);
+        background-color: rgba(255, 255, 255, 0.95);
 
         .image-container {
             position: relative;
@@ -32,7 +32,6 @@ export const ContainerCard = styled.div`
             align-items: center;
             justify-content: center;
             
-
             .pokeball-image {
                 height: 130px;
                 z-index: 1;
@@ -47,68 +46,85 @@ export const ContainerCard = styled.div`
             }
         }
 
-        
+
         main {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
+            width: 100%;
             transition: all 0.5s ease;
 
             h2 {
+                color: #5e60ce;
                 font-size: 24px;
                 font-weight: 700;
-                margin-top: 24px;
+                margin: 16px 0;
                 text-transform: uppercase;
-                transition: all 0.5s ease;
-                margin-bottom: 4px;
             }
 
             h4 {
-                margin-top: 24px;
-                text-transform: uppercase;
-                transition: all 0.5s ease;
+                font-size: 16px;
+                font-weight: 700;
+                margin-right: 8px;
             }
 
             .experience {
-                background-color: #d0d0d0;
-                padding: 1px;
-                width: 200px;
-                transition: all 0.5s ease;
-                margin: 6px 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
 
-                div {
-                    font-size: 12px;
-                    text-align: right;
-                    padding-right: 4px;
-                    background-color: #03fb9a;
-                    ${({experience}) => css` width: ${experience / 1.5}px `};
+                .inner-experience {
+                    background-color: #d0d0d0;
+                    padding: 1px;
+                    width: 100px;
+                    border-radius: 16px;
+                    margin: 6px 0;
 
-                    box-shadow: 0 0 6px #03fb9a;
-                }
-                
+                    div {
+                        font-size: 12px;
+                        text-align: right;
+                        padding-right: 4px;
+                        background-color: #80ffdb;
+                        ${({experience}) => css` width: ${experience / 3}px `};
+
+                        box-shadow: 0 0 4px #80ffdb;
+                    }
+                }                
             }
 
             .types {
-                transition: all 0.5s ease;
+                margin: 10px 0;
+                width: 100%;
 
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
             }
 
             .abilities {
-                transition: all 0.5s ease;
+                width: 100%;
+
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
             }
 
             button {
-                background-color: #a9a9a9;
+                background-color: #4ea8de;
+                color: #fff;
+                font-weight: 700;
                 border: none;
-                border-radius: 4px;
-                padding: 6px 12px;
-                margin: 4px;
-                opacity: 0.7;
+                border-radius: 5px;
+                padding: 5px 8px;
+                margin: 2px;
+                opacity: 1;
                 transition: all 0.5s ease;
 
                 &:hover {
-                    opacity: 1; 
+                    opacity: 0.8; 
                 }
             }
         }

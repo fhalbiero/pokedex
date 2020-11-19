@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-import Topbar from '../../components/Topbar';
+import Navbar from '../../components/Navbar';
 import Card from '../../components/Card';
 import api from '../../services/api';
 
@@ -11,14 +11,7 @@ import { Container } from './styles';
 
 const Dashboard = () => {
 
-  const [ pokemons, setPokemons ] = useState([]);
-
-  useEffect(() => {
-    api.get('?offset=0&limit=20')
-        .then( response => {
-            setPokemons(response.data.results);
-        });
-}, [setPokemons]);
+  const { pokemons } = usePokemons();
   
 
   if (!pokemons) {
@@ -26,15 +19,14 @@ const Dashboard = () => {
   }
 
   return (
-    <Container>
-        <Topbar />
-        <main>
-            {pokemons && pokemons.map(pokemon => <Card pokemon={pokemon}/>)}
-        </main>
-        <footer>
-
-        </footer>
-    </Container>
+    <>
+      <Navbar />
+      <Container>  
+          <main>
+              {pokemons && pokemons.map(pokemon => <Card pokemon={pokemon}/>)}
+          </main>
+      </Container>
+    </>
   );
 }
 

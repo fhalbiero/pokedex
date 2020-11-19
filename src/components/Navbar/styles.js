@@ -2,23 +2,30 @@ import styled from 'styled-components';
 
 
 export const Container = styled.div`
+
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
 
+    padding: 26px 56px;
     width: 100%;
-    height: 120px;
-    max-width: 1080px;
+    max-width: 1080;
 
     img {
-        width: 240px;
+        position: absolute;
+        top: 26px;
+        left: 26px;
+        width: 140px;
     }
 
-    div {
+    .search {
 
-        width: 300px;
+        width: 700px;
         background-color: #fff;
-        border-radius: 16px;
+        border-radius: 5px;
+        padding: 16px 24px;
 
         display: flex;
         align-items: center;
@@ -26,8 +33,8 @@ export const Container = styled.div`
 
         input {
             border: none;
-            padding: 10px 16px;
-            font-size: 18px;
+            font-size: 22px;
+            width: 500px;
             background-color: transparent;
         }
 
@@ -37,6 +44,7 @@ export const Container = styled.div`
             opacity: 0.7;
             transition: all 0.5s ease;
             margin-right: 16px;
+            cursor: pointer;
 
             &:hover {
                 opacity: 1; 
@@ -48,5 +56,7 @@ export const Container = styled.div`
         }
 
     }
+
+    
 
 `; 
