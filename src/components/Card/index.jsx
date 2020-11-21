@@ -1,9 +1,49 @@
 import React, { useEffect, useState } from 'react';
 
 import api from '../../services/api';
-import pokeball from '../../images/pokeball-open2.png'
+import pokeball from '../../images/pokeball-open2.png';
+import bugImg from '../../images/bug.svg';
+import darkImg from '../../images/dark.svg';
+import dragonImg from '../../images/dragon.svg';
+import electricImg from '../../images/electric.svg';
+import fairyImg from '../../images/fairy.svg';
+import fightingImg from '../../images/fighting.svg';
+import fireImg from '../../images/fire.svg';
+import flyingImg from '../../images/flying.svg';
+import ghostImg from '../../images/ghost.svg';
+import grassImg from '../../images/grass.svg';
+import groundImg from '../../images/ground.svg';
+import iceImg from '../../images/ice.svg';
+import normalImg from '../../images/normal.svg';
+import poisonImg from '../../images/poison.svg';
+import psychicImg from '../../images/psychic.svg';
+import rockImg from '../../images/rock.svg';
+import steelImg from '../../images/steel.svg';
+import waterImg from '../../images/water.svg';
+
 
 import { ContainerCard } from './styles';
+
+const typesImages = {
+  bug: bugImg,
+  dark: darkImg,
+  dragon: dragonImg,
+  electric: electricImg,
+  fairy: fairyImg,
+  fighting: fightingImg,
+  fire: fireImg,
+  flying: flyingImg,
+  ghost: ghostImg,
+  grass: grassImg,
+  ground: groundImg,
+  ice: iceImg,
+  normal: normalImg,
+  poison: poisonImg,
+  psychic: psychicImg,
+  rock: rockImg,
+  steel: steelImg,
+  water: waterImg,
+}
 
 
 const Card = ({pokemon, handlePokemonsByType}) => {
@@ -110,10 +150,10 @@ const Card = ({pokemon, handlePokemonsByType}) => {
             <div className="types">
               {pokemonData.types.map( type => {
                   return (
-                    <button onClick={() => handlePokemonsByType(type.url)}>
+                    <button key={type.name} onClick={() => handlePokemonsByType(type.url)}>
                       <img 
                         className="pokemon-image" 
-                        src={`/images/${type.name}.svg`} 
+                        src={typesImages[type.name]} 
                         alt={type.name}
                       />
                     </button> 

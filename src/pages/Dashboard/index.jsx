@@ -36,7 +36,13 @@ const Dashboard = () => {
       <Navbar />
       <Container>  
           <main>
-              {pokemons && pokemons.map(pokemon => <Card handlePokemonsByType={handlePokemonsByType} pokemon={pokemon}/>)}
+              {pokemons && pokemons.map(pokemon => (
+                <Card 
+                  key={pokemon.name}
+                  handlePokemonsByType={handlePokemonsByType} 
+                  pokemon={pokemon}
+                />
+              ))}
           </main>
           <footer>
             <button onClick={handleShowMore}>Show me more pokemons</button>
