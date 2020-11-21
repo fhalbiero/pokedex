@@ -1,6 +1,6 @@
 <h1 align="center">My version of POKÉDEX<h1>
 
-<h1> <img src="images/screen.png" alt=""> 
+<img src="images/screen.png" alt=""> 
 
 Try the live application [Here](https://fhalbiero.github.io/pokedex/)
 
