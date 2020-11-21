@@ -3,7 +3,6 @@ import { FaSearch } from 'react-icons/fa';
 
 import { usePokemons } from '../../context/pokemons';
 import api from '../../services/api';
-import logo from '../../images/logo.png';
 
 import { Container } from './styles';
 
@@ -29,11 +28,12 @@ const Navbar = () => {
       });
       
       setPokemons(foundPokemons);
+      setSearchText('');
   }
 
   return (
       <Container>
-        <img src={logo} alt="pokemon"/>
+        <h1>Pokédex</h1>
         
         <div className="search">
             <input 

@@ -3,29 +3,31 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 
-    position: relative;
+    position: fixed;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.90);
+    margin-top: -80px;
 
     padding: 26px 56px;
     width: 100%;
     max-width: 1080;
+    z-index: 999;
 
-    img {
-        position: absolute;
-        top: 26px;
-        left: 26px;
-        width: 140px;
+    h1 {
+        color: #F2D94E;
+        font-weight: 500;
     }
 
     .search {
 
-        width: 700px;
+        width: 90%;
+        max-width: 400px;
         background-color: #fff;
-        border-radius: 5px;
-        padding: 16px 24px;
+        border-radius: 16px;
+        padding: 4px 16px;
 
         display: flex;
         align-items: center;
@@ -33,8 +35,9 @@ export const Container = styled.div`
 
         input {
             border: none;
-            font-size: 22px;
-            width: 500px;
+            font-size: 18px;
+            width: 300px;
+            text-transform: uppercase;
             background-color: transparent;
         }
 
@@ -43,7 +46,6 @@ export const Container = styled.div`
             border: none;
             opacity: 0.7;
             transition: all 0.5s ease;
-            margin-right: 16px;
             cursor: pointer;
 
             &:hover {
@@ -52,6 +54,7 @@ export const Container = styled.div`
 
             svg {
                 font-size: 24px;
+                color: #256ab0;
             }
         }
 

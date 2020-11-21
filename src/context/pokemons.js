@@ -8,16 +8,20 @@ const PokemonsProvider = ({children}) => {
 
     const [ pokemons, setPokemons ] = useState([]); 
     const [ count, setCountPokemons ] = useState([]); 
+    const [ nextPage, setNextPage ] = useState(''); 
 
     useEffect(() => {
         api.get('?offset=0&limit=20')
             .then( response => {
                 setCountPokemons(response.data.count);
                 setPokemons(response.data.results);
+                setNextPage(response.data.next);
             });
     }, []);
 
+
     const handlePokemons = useCallback((data) => {
+        setPokemons([]);
         setPokemons(data);
     }, [setPokemons, pokemons]);
 
@@ -27,7 +31,9 @@ const PokemonsProvider = ({children}) => {
              pokemons, 
              setPokemons: handlePokemons, 
              count, 
-             setCountPokemons 
+             setCountPokemons,
+             nextPage,
+             setNextPage 
         }} >
              {children}
         </PokemonsContext.Provider>

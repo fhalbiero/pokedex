@@ -6,7 +6,7 @@ export const ContainerCard = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    perspective: 1080px;
+    perspective: 1580px;
 
     .card {
         display: flex;
@@ -16,15 +16,16 @@ export const ContainerCard = styled.div`
         transform-style: preserve-3d;     
 
         margin: 24px;
-        padding: 24px;
+        padding: 26px;
 
         width: 280px;
-        height: 390px;
-        box-shadow: 0 10px 16px rgba(0,0,0, .5), 0 0 24px rgba(0,0,0, .2);
+        height: 360px;
+        box-shadow: 0 8px 16px rgba(0,0,0, .4), 0 0 26px rgba(0,0,0, .15);
         background-color: #fff;
-        border: 1px solid #efefef;
-        border-radius: 16px; 
-        background-color: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(60, 68, 76, 0.95);
+        border-radius: 5px; 
+
+        background-color: rgba(40, 48, 56, 0.90);
 
         .image-container {
             position: relative;
@@ -57,74 +58,65 @@ export const ContainerCard = styled.div`
             transition: all 0.5s ease;
 
             h2 {
-                color: #5e60ce;
+                color: #F2D94E;
                 font-size: 24px;
-                font-weight: 700;
+                font-weight: 500;
                 margin: 16px 0;
                 text-transform: uppercase;
-            }
-
-            h4 {
-                font-size: 16px;
-                font-weight: 700;
-                margin-right: 8px;
             }
 
             .experience {
                 display: flex;
                 align-items: center;
-                justify-content: flex-start;
+                justify-content: center;
+                color: #fff;
                 width: 100%;
+                padding: 4px 8px;
 
                 .inner-experience {
-                    background-color: #d0d0d0;
-                    padding: 1px;
-                    width: 100px;
-                    border-radius: 16px;
+                    background-color: #6f6f6f;
+                    width: 200px;
+                    border-radius: 8px;
                     margin: 6px 0;
 
                     div {
                         font-size: 12px;
                         text-align: right;
                         padding-right: 4px;
-                        background-color: #80ffdb;
-                        ${({experience}) => css` width: ${experience / 3}px `};
-
-                        box-shadow: 0 0 4px #80ffdb;
+                        background-color: #36c3f9;
+                        border-radius: 8px;
+                        color: #30303f;
+                        ${({experience}) => css` width: ${experience / 2}px `};
                     }
                 }                
             }
 
             .types {
-                margin: 10px 0;
                 width: 100%;
 
                 display: flex;
+                justify-content: center;
                 align-items: center;
-                justify-content: flex-start;
+                padding: 8px;
+                color: #fff;
             }
 
-            .abilities {
-                width: 100%;
-
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-            }
 
             button {
-                background-color: #4ea8de;
-                color: #fff;
-                font-weight: 700;
+                background-color: transparent;
                 border: none;
-                border-radius: 5px;
                 padding: 5px 8px;
                 margin: 2px;
-                opacity: 1;
+                opacity: 0.8;
                 transition: all 0.5s ease;
+                cursor: pointer;
 
                 &:hover {
-                    opacity: 0.8; 
+                    opacity: 1; 
+                }
+
+                img {
+                    width: 32px;
                 }
             }
         }

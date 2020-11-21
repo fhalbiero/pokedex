@@ -6,7 +6,7 @@ import pokeball from '../../images/pokeball-open2.png'
 import { ContainerCard } from './styles';
 
 
-const Card = ({pokemon}) => {
+const Card = ({pokemon, handlePokemonsByType}) => {
   
   const [ pokemonData, setPokemonData ] = useState({});
 
@@ -29,6 +29,7 @@ const Card = ({pokemon}) => {
   }, [setPokemonData]);
 
 
+
   const mouseMoveCard = (e) => {
     const container = document.querySelector(`#container-${pokemonData.name}`);
     const card = document.querySelector(`#card-${pokemonData.name}`);
@@ -49,8 +50,8 @@ const Card = ({pokemon}) => {
     card.style.transition = `none`;
 
     pokeballImage.style.transform = ` translateZ(80px) rotateZ(16deg)`;
-    pokemonImage.style.transform = ` translateZ(260px) rotateZ(-4deg)`;
-    main.style.transform = ` translateZ(48px)`;
+    pokemonImage.style.transform = ` translateZ(280px) rotateZ(-4deg)`;
+    main.style.transform = ` translateZ(68px)`;
   }
 
   const mouseLeaveCard = () => {
@@ -101,21 +102,24 @@ const Card = ({pokemon}) => {
             <h2>{pokemonData.name}</h2>
 
             <div className="experience">
-                <h4>Experience</h4>
                 <div className="inner-experience">
                   <div>{pokemonData.base_experience}</div>
                 </div>
             </div>
             
             <div className="types">
-              <h4>Type</h4>
-              {pokemonData.types.map( type => <button>{type.name}</button> )}
+              {pokemonData.types.map( type => {
+                  return (
+                    <button onClick={() => handlePokemonsByType(type.url)}>
+                      <img 
+                        className="pokemon-image" 
+                        src={`/images/${type.name}.svg`} 
+                        alt={type.name}
+                      />
+                    </button> 
+                  )
+              })}
             </div> 
-
-            <div className="abilities">
-              <h4>Abilits</h4>
-              {pokemonData.abilities.map( ability => <button>{ability.name}</button> )}
-            </div>
           </main>
         </div>
       </ContainerCard>
